@@ -16,6 +16,14 @@ const initialState = [
         creationDate: "2022-03-11",
         modificationDates: ["2022-05-01", "2022-05-18"],
         importance: false
+    },
+    {
+        id: 3,
+        name: "Kontaktirati kupca",
+        description: "Poslati mail kupcu da je proizvod dovršen",
+        creationDate: "2020-05-17",
+        modificationDates: [],
+        importance: true
     }
 ]
 
