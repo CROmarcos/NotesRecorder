@@ -5,10 +5,10 @@ export const createNote = payload => ({
     payload
 })
 
-export const editNote = (name, description, modificationDate) => ({
+export const editNote = (title, description, modificationDate) => ({
     type: actions.MODIFY,
     payload: {
-        name,
+        title,
         description,
         modificationDate
     }

@@ -1,15 +1,16 @@
-import { useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import './App.scss';
-import Note from './components/Note/Note';
-import store from './state/store';
+import EditNote from './components/EditNote/EditNote';
+import Home from './pages/Home';
 
 function App() {
-  const [notes, setNotes]=useState(store.getState())
   return (
     <div className="App">
-      {notes.map(note=>
-        <Note title={note.name} description={note.description} creationDate={note.creationDate} />
-        )}
+      <Routes>
+        <Route path='/' element={Home()} />
+        <Route path='/add' element={EditNote()} />
+      </Routes>
+
     </div>
   );
 }
