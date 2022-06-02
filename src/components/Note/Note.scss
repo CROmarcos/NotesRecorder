@@ -8,6 +8,19 @@
         width: 100%;
         height: 20%;
         border-bottom: 2px solid rgb(6, 6, 121);
+        display: inline-flex;
+
+        &-text {
+            width: 80%;
+            height: 100%;
+            align-items: left;
+        }
+
+        &-important {
+            width: 20%;
+            height: 100%;
+            display: inline-flex;
+        }
     }
 
     &__body {
@@ -18,5 +31,21 @@
     &__footer {
         width: 100%;
         height: 20%;
+    }
+}
+
+.action {
+    width: fit-content;
+    height: 35px;
+    background: none;
+    border: none;
+    font-weight: bold;
+    text-decoration: underline;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+
+    img {
+        height: 100%;
     }
 }
