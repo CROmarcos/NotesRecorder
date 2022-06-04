@@ -1,14 +1,15 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.scss';
-import EditNote from './components/EditNote/EditNote';
 import Home from './pages/Home';
+import NewNote from './pages/NewNote'
 
 function App() {
   return (
     <div className="App">
       <Routes>
         <Route path='/' element={Home()} />
-        <Route path='/add' element={EditNote()} />
+        <Route path='/add' element={NewNote()} />
+        <Route path='/edit/:id' element={NewNote()} />
       </Routes>
 
     </div>

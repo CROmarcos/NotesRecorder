@@ -1,16 +1,27 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import '../Note/Note.scss'
 import './EditNote.scss'
 import store from '../../state/store'
-import { createNote } from '../../state/actions'
+import { createNote, editNote } from '../../state/actions'
 
 const EditNote = () => {
 
+    let note_id = 0
+    let note_title = ''
+    let note_description = ''
+
+    const { id } = useParams()
+    if (id) {
+        let targetNote = store.getState().find(note => note.id === parseInt(id))
+        note_id = targetNote.id
+        note_title = targetNote.title
+        note_description = targetNote.description
+    }
+
     const [input, setInput] = useState({
-        title: "",
-        description: "",
-        creationDate: ""
+        title: note_title,
+        description: note_description
     })
 
     const handleChange = (e) => {
@@ -32,7 +43,10 @@ const EditNote = () => {
             modificationDates: [],
             importance: false
         }))
-        console.log(store.getState())
+    }
+
+    const editTheNote = () => {
+        store.dispatch(editNote(note_id, input.title, input.description))
     }
 
     return (
@@ -44,7 +58,7 @@ const EditNote = () => {
                 <input type="text" name="description" value={input.description} onChange={handleChange} />
             </div>
             <div className='card__footer'>
-                <Link to="/"><button onClick={createNewNote}>Save</button></Link>
+                <Link to="/"><button onClick={id ? editTheNote : createNewNote}>Save</button></Link>
             </div>
         </div>
     )
