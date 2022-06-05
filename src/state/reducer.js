@@ -39,7 +39,7 @@ const reducer = (state = initialState, action) => {
         case actions.DELETE:
             return state.filter(note => note.id !== action.payload)
         case actions.MARK:
-            return state.map(note => (note.id === action.payload.id) ? { ...note, importance: !this.importance } : note)
+            return state.map(note => (note.id === action.payload) ? { ...note, importance: !this.importance } : note)
         default:
             return state
     }
