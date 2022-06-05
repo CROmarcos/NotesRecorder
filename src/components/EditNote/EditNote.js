@@ -7,14 +7,12 @@ import { createNote, editNote } from '../../state/actions'
 
 const EditNote = () => {
 
-    let note_id = 0
     let note_title = ''
     let note_description = ''
 
     const { id } = useParams()
     if (id) {
         let targetNote = store.getState().find(note => note.id === parseInt(id))
-        note_id = targetNote.id
         note_title = targetNote.title
         note_description = targetNote.description
     }
@@ -40,13 +38,19 @@ const EditNote = () => {
             title: input.title,
             description: input.description,
             creationDate: date,
-            modificationDates: [],
+            lastModification: "not modified",
             importance: false
         }))
     }
 
     const editTheNote = () => {
-        store.dispatch(editNote(note_id, input.title, input.description))
+        store.dispatch(editNote({
+            id: parseInt(id),
+            title: input.title,
+            description: input.description,
+            lastModification: date.toString()
+        }))
+        console.log(store.getState())
     }
 
     return (

@@ -6,7 +6,7 @@ const initialState = [
         title: "Napraviti kavu",
         description: "Skuhati Nescafe kremastu kavu s toplim mlijekom",
         creationDate: "2021-12-17",
-        modificationDates: [],
+        lastModification: "not modified",
         importance: false
     },
     {
@@ -14,7 +14,7 @@ const initialState = [
         title: "Složiti bazu podataka",
         description: "Kreirati tablice i ovisnost s triggerima",
         creationDate: "2022-03-11",
-        modificationDates: ["2022-05-01", "2022-05-18"],
+        lastModification: "2022-05-01",
         importance: false
     },
     {
@@ -22,7 +22,7 @@ const initialState = [
         title: "Kontaktirati kupca",
         description: "Poslati mail kupcu da je proizvod dovršen",
         creationDate: "2020-05-17",
-        modificationDates: [],
+        lastModification: "not modified",
         importance: true
     }
 ]
@@ -35,10 +35,7 @@ const reducer = (state = initialState, action) => {
                 action.payload
             ]
         case actions.MODIFY:
-            return state.map(note => (note.id === action.payload.id) ?
-                ({ ...note, title: action.payload.title, description: action.payload.description },
-                    note.modificationDates.push(action.payload.modificationDate))
-                : note)
+            return state.map(note => (note.id === action.payload.id) ? ({ ...note, title: action.payload.title, description: action.payload.description, lastModification: action.payload.modificationDate }) : note)
         case actions.DELETE:
             return state.filter(note => note.id !== action.payload)
         case actions.MARK:

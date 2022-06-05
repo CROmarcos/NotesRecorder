@@ -23,6 +23,7 @@ const Note = props => {
             <div className='card__body'>
                 <p>{props.description}</p>
                 <p>{props.creationDate}</p>
+                <p>{props.lastModification}</p>
             </div>
             <div className='card__footer'></div>
         </div>

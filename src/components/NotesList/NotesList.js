@@ -13,7 +13,7 @@ const NotesList = () => {
     return (
         <div>
             {list.map(note =>
-                <Note key={note.id} noteId={note.id} title={note.title} description={note.description} creationDate={note.creationDate} important={note.importance} refresh={refresh} />
+                <Note key={note.id} noteId={note.id} title={note.title} description={note.description} creationDate={note.creationDate} lastModification={note.lastModification} important={note.importance} refresh={refresh} />
             )}
             <Link to="/add"><button>Add new</button></Link>
         </div>
