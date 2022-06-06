@@ -24,6 +24,14 @@ const initialState = [
         creationDate: "2020-5-17, 13:07",
         lastModification: "still not modified",
         importance: true
+    },
+    {
+        id: 4,
+        title: "Napraviti testiranje",
+        description: "Automatizacija testiranja",
+        creationDate: "2021-4-7, 12:21",
+        lastModification: "still not modified",
+        importance: true
     }
 ]
 

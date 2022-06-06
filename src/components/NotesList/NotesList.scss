@@ -3,6 +3,12 @@
     flex-wrap: wrap;
     width: 100%;
     justify-content: space-evenly;
+
+    &--filter {
+        font-size: 14pt;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
 }
 
 .main-button {
