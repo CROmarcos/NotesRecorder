@@ -30,7 +30,7 @@ const EditNote = () => {
     }
 
     let today = new Date();
-    let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate()
+    let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate() + ", " + today.getHours() + ":" + today.getMinutes()
 
     const createNewNote = () => {
         store.dispatch(createNote({
@@ -38,7 +38,7 @@ const EditNote = () => {
             title: input.title,
             description: input.description,
             creationDate: date,
-            lastModification: "not modified",
+            lastModification: "still not modified",
             importance: false
         }))
     }
@@ -48,7 +48,7 @@ const EditNote = () => {
             id: parseInt(id),
             title: input.title,
             description: input.description,
-            lastModification: date.toString()
+            lastModification: date
         }))
         console.log(store.getState())
     }

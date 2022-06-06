@@ -3,6 +3,7 @@ import heart from '../../../src/images/heart.png'
 import trashCan from '../../../src/images/trashcan.png'
 import pen from '../../../src/images/pen.png'
 import emptyHeart from '../../../src/images/emptyheart.png'
+import printer from '../../../src/images/printer.png'
 import store from '../../state/store'
 import { deleteNote, markNote } from '../../state/actions'
 import { Link } from 'react-router-dom'
@@ -17,15 +18,17 @@ const Note = props => {
                 <section className='card__title-important'>
                     <Link to={`/edit/${props.noteId}`}><button className='action'><img src={pen} alt="edit" /></button></Link>
                     <button className='action' onClick={() => { store.dispatch(deleteNote(props.noteId)); props.refresh() }}><img src={trashCan} alt="delete"></img></button>
-                    {props.important ? <button className='action' onClick={() => { store.dispatch(markNote(props.noteId)); props.refresh() }}><img src={emptyHeart} alt="important note" /></button> : <button className='action' onClick={props.click}><img src={heart} alt="important note" /></button>}
+                    <button className='action' onClick={() => { store.dispatch(markNote(props.noteId)); props.refresh() }}>{props.important ? <img src={heart} alt="important note" /> : <img src={emptyHeart} alt="important note" />}</button>
                 </section>
             </div>
             <div className='card__body'>
-                <p>{props.description}</p>
-                <p>{props.creationDate}</p>
-                <p>{props.lastModification}</p>
+                <div className='card__body-row'><label>Task: </label><span>{props.description}</span></div>
+                <div className='card__body-row'><label>Created: </label><span>{props.creationDate}</span></div>
+                <div className='card__body-row'><label>Last modified: </label><span>{props.lastModification}</span></div>
             </div>
-            <div className='card__footer'></div>
+            <div className='card__footer'>
+                <button className='action'><img src={printer} alt="Save to PDF"/></button>
+            </div>
         </div>
     )
 }

@@ -1,8 +1,10 @@
 import EditNote from "../components/EditNote/EditNote"
+import Title from "../components/Title/Title"
 
 const NewNote = () => {
     return (
-        <div>
+        <div className="page">
+            <Title title="Make your note" />
             <EditNote />
         </div>
     )
