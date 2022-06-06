@@ -1,0 +1,29 @@
+.input {
+    border: 0;
+    width: calc(100% - 10px);
+    background: transparent;
+    padding-left: 10px;
+    margin: 0;
+    font-size: 14pt;
+
+    &--action {
+        width: 120px;
+        height: 30px;
+        border: 2px solid rgb(2, 2, 59);
+        border-radius: 2%;
+        background-color: white;
+        color: rgb(2, 2, 59);
+        font-size: 14pt;
+        font-weight: bold;
+    }
+}
+
+.description {
+    height: 130px;
+}
+
+.inputPage {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

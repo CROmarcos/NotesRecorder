@@ -54,15 +54,18 @@ const EditNote = () => {
     }
 
     return (
-        <div className='card'>
-            <div className='card__title'>
-                <input type="text" name="title" value={input.title} onChange={handleChange} />
-            </div>
-            <div className='card__body'>
-                <input type="text" name="description" value={input.description} onChange={handleChange} />
-            </div>
-            <div className='card__footer'>
-                <Link to="/"><button onClick={id ? editTheNote : createNewNote}>Save</button></Link>
+        <div className='inputPage'>
+            <div className='card'>
+                <div className='card__title'>
+                    <input className='input' type="text" name="title" value={input.title} placeholder="Enter the title" onChange={handleChange} />
+                </div>
+                <div className='card__body'>
+                    <input className='input description' type="text" name="description" value={input.description} placeholder="Describe your task" onChange={handleChange} />
+                </div>
+                <div className='card__footer'>
+                    <Link to="/"><button className='input--action' onClick={id ? editTheNote : createNewNote}>Save</button></Link>
+                    <Link to="/"><button className='input--action'>Cancel</button></Link>
+                </div>
             </div>
         </div>
     )

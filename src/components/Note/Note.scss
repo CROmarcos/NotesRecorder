@@ -1,6 +1,6 @@
 .card {
     width: 400px;
-    min-height: 250px;
+    height: 250px;
     border: 2px solid rgb(2, 2, 59);
     border-radius: 2%;
     margin-bottom: 50px;
@@ -10,9 +10,10 @@
         height: 20%;
         border-bottom: 2px solid rgb(2, 2, 59);
         display: inline-flex;
+        background-color: rgb(224, 205, 205);
 
         &-text {
-            width: 60%;
+            width: calc(60% - 15px);
             height: 100%;
             display: flex;
             justify-content: left;
@@ -52,8 +53,7 @@
         width: calc(100% - 15px);
         height: 20%;
         display: flex;
-        justify-content: right;
-        padding-right: 15px;
+        justify-content: space-evenly;
     }
 }
 
