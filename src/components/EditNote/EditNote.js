@@ -54,7 +54,7 @@ const EditNote = () => {
     }
 
     return (
-        <div className='inputPage'>
+        <div className='input-page'>
             <div className='card'>
                 <div className='card__title'>
                     <input className='input' type="text" name="title" value={input.title} placeholder="Enter the title" onChange={handleChange} />

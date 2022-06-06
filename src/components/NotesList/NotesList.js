@@ -18,7 +18,7 @@ const NotesList = () => {
                     <Note key={note.id} noteId={note.id} title={note.title} description={note.description} creationDate={note.creationDate} lastModification={note.lastModification} important={note.importance} refresh={refresh} />
                 )}
             </div>
-            <Link to="/add"><button className="mainButton">Add a note</button></Link>
+            <Link to="/add"><button className="main-button">Add a note</button></Link>
         </>
     )
 }
