@@ -9,6 +9,7 @@ const NotesList = () => {
 
     function refresh() {
         setList(store.getState())
+        console.log(store.getState())
     }
 
     function filterList() {
@@ -28,7 +29,7 @@ const NotesList = () => {
             </div>
             <div className="list--filter">
                 <label>Show only important notes</label>
-                <input id="check" type="checkbox" onClick={filterList} unchecked />
+                <input id="check" type="checkbox" onClick={filterList} unchecked="true" />
             </div>
             <Link to="/add"><button className="main-button">Add a note</button></Link>
         </>

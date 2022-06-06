@@ -20,7 +20,10 @@ export const deleteNote = payload => ({
     payload
 })
 
-export const markNote = payload => ({
+export const markNote = ({ id, importance }) => ({
     type: actions.MARK,
-    payload
+    payload: {
+        id,
+        importance
+    }
 })
