@@ -15,7 +15,7 @@ const Note = props => {
                 <section className='card__title-text'>
                     <p>{props.title}</p>
                 </section>
-                <section className='card__title-important'>
+                <section className='card__title-actions'>
                     <Link to={`/edit/${props.noteId}`}><button className='action'><img src={pen} alt="edit" /></button></Link>
                     <button className='action' onClick={() => { store.dispatch(deleteNote(props.noteId)); props.refresh() }}><img src={trashCan} alt="delete"></img></button>
                     <button className='action' onClick={() => { store.dispatch(markNote({ id: props.noteId, importance: !props.important })); props.refresh() }}>{props.important ? <img src={heart} alt="important note" /> : <img src={emptyHeart} alt="important note" />}</button>
@@ -27,7 +27,7 @@ const Note = props => {
                 <div className='card__body-row'><label>Last modified: </label><span>{props.lastModification}</span></div>
             </div>
             <div className='card__footer'>
-                <button className='action'><img src={printer} alt="Save to PDF" /></button>
+                <Link to={`/print/${props.noteId}`}><button className='action'><img src={printer} alt="Save to PDF" /></button></Link>
             </div>
         </div>
     )

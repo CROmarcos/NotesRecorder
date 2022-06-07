@@ -9,7 +9,6 @@ const NotesList = () => {
 
     function refresh() {
         setList(store.getState())
-        console.log(store.getState())
     }
 
     function filterList() {
@@ -17,8 +16,6 @@ const NotesList = () => {
         if (cb.checked) setList(list.filter(item => item.importance))
         else refresh()
     }
-
-    document.getElementById("check")
 
     return (
         <>

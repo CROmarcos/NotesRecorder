@@ -5,7 +5,7 @@ const initialState = [
         id: 1,
         title: "Napraviti kavu",
         description: "Skuhati Nescafe kremastu kavu s toplim mlijekom",
-        creationDate: "2021-12-17, 23:11",
+        creationDate: "17.12.2021., 23:11",
         lastModification: "still not modified",
         importance: false
     },
@@ -13,15 +13,15 @@ const initialState = [
         id: 2,
         title: "Složiti bazu podataka",
         description: "Kreirati tablice i ovisnost s triggerima",
-        creationDate: "2022-03-11, 2:24",
-        lastModification: "2022-5-1, 1:01",
+        creationDate: "11.3.2022., 2:24",
+        lastModification: "1.5.2022., 1:01",
         importance: false
     },
     {
         id: 3,
         title: "Kontaktirati kupca",
         description: "Poslati mail kupcu da je proizvod dovršen",
-        creationDate: "2020-5-17, 13:07",
+        creationDate: "17.5.2020., 13:07",
         lastModification: "still not modified",
         importance: true
     },
@@ -29,7 +29,7 @@ const initialState = [
         id: 4,
         title: "Napraviti testiranje",
         description: "Automatizacija testiranja",
-        creationDate: "2021-4-7, 12:21",
+        creationDate: "7.4.2021., 12:21",
         lastModification: "still not modified",
         importance: true
     }

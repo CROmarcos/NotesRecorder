@@ -1,0 +1,67 @@
+.print {
+    width: 700px;
+    height: 475px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    color: rgb(2, 2, 59);
+
+    &__card {
+        width: 600px;
+        height: 375px;
+    }
+
+    &__title {
+        font-size: 28pt;
+        font-weight: bold;        
+        text-transform: uppercase;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__body {
+        text-align: center;
+    }
+
+    &__footer {
+        border-top: 2pt solid rgb(2, 2, 59);
+        font-weight: bold;
+    }
+
+    &__actions {
+        margin: auto;
+        width: 500px;
+        display: flex;
+        justify-content: space-evenly;
+    }
+}
+
+.side {
+    width: 50%;
+    height: calc(100% - 4pt);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16pt;
+}
+
+.prop {
+    margin: auto;
+    font-size: 16pt;
+    
+    &__title {
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    &__value {
+        margin: 0;
+        margin-bottom: 10px;
+    }
+
+    &:first-child{
+        margin-top: 10px;
+    }
+}

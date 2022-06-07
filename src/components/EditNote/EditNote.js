@@ -30,7 +30,7 @@ const EditNote = () => {
     }
 
     let today = new Date();
-    let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate() + ", " + today.getHours() + ":" + today.getMinutes()
+    let date = today.getDate() + '.' + (today.getMonth() + 1) + '.' + today.getFullYear() + "., " + today.getHours() + ":" + today.getMinutes()
 
     const createNewNote = () => {
         store.dispatch(createNote({

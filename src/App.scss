@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+.main-button {
+  width: 200px;
+  height: 40px;
+  border: 2px solid rgb(2, 2, 59);
+  border-radius: 3%;
+  background-color: white;
+  color: rgb(2, 2, 59);
+  font-size: 16pt;
+  font-weight: bold;
+}
