@@ -23,9 +23,9 @@ const Print = () => {
 
     const Template = React.forwardRef((props, ref) => (
         <div ref={ref} className="print">
-            <div className="card print__card">
-                <div className="card__title print__title">{props.title}</div>
-                <div className="card__body print__body">
+            <div className="print__card">
+                <div className="print__title">{props.title}</div>
+                <div className="print__body">
                     <p className="prop prop__title">Task description</p>
                     <p className="prop prop__value">{props.description}</p>
                     <p className="prop prop__title">Created at</p>
@@ -33,13 +33,9 @@ const Print = () => {
                     <p className="prop prop__title">Last modified at</p>
                     <p className="prop prop__value">{props.lastModification}</p>
                 </div>
-                <div className="card__footer print__footer">
-                    <section className="side">
-                        <p>Printed at: {date}</p>
-                    </section>
-                    <section className="side">
-                        <p>&copy; Notes Recorder 2022</p>
-                    </section>
+                <div className="print__footer">
+                    <p>Printed at: {date}</p>
+                    <p>&copy; Notes Recorder 2022</p>
                 </div>
             </div>
         </div>

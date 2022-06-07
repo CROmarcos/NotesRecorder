@@ -1,33 +1,38 @@
 .print {
-    width: 700px;
-    height: 475px;
+    width: 750px;
+    height: 700px;
     display: flex;
     justify-content: center;
-    align-items: center;
     margin: auto;
+    margin-bottom: 50px;
     color: rgb(2, 2, 59);
+    background-image: url("../../images/stickyNote.png");
+    background-repeat: no-repeat;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 
     &__card {
-        width: 600px;
+        margin-top: 150px;
+        width: 80%;
         height: 375px;
     }
 
     &__title {
-        font-size: 28pt;
-        font-weight: bold;        
+        margin: auto;
+        margin-bottom: 50px;
+        font-size: 36pt;
+        font-weight: bold;
         text-transform: uppercase;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        border-bottom: 3pt dashed rgb(2, 2, 59);
     }
 
     &__body {
-        text-align: center;
+        font-size: 20pt;
+        border-bottom: 3pt dashed rgb(2, 2, 59);
     }
 
     &__footer {
-        border-top: 2pt solid rgb(2, 2, 59);
         font-weight: bold;
+        font-size: 18pt;
     }
 
     &__actions {
@@ -38,19 +43,9 @@
     }
 }
 
-.side {
-    width: 50%;
-    height: calc(100% - 4pt);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 16pt;
-}
-
 .prop {
     margin: auto;
-    font-size: 16pt;
-    
+
     &__title {
         font-weight: bold;
         text-transform: uppercase;
@@ -58,10 +53,10 @@
 
     &__value {
         margin: 0;
-        margin-bottom: 10px;
+        margin-bottom: 20px;
     }
 
-    &:first-child{
-        margin-top: 10px;
+    &:last-child {
+        margin-bottom: 50px;
     }
 }
