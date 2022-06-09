@@ -13,7 +13,6 @@ function App() {
         <Route path='/edit/:id' element={NewNote()} />
         <Route path='/print/:id' element={ReadyToPrint()} />
       </Routes>
-
     </div>
   );
 }

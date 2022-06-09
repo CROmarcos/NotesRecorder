@@ -7,21 +7,30 @@ import './NotesList.scss'
 const NotesList = () => {
     const [list, setList] = useState(store.getState())
 
+    //To filter only important notes
+    const [filtered, setFiltered] = useState(false)
+
     function refresh() {
         setList(store.getState())
     }
 
     function filterList() {
         let cb = document.getElementById("check")
-        if (cb.checked) setList(list.filter(item => item.importance))
-        else refresh()
+        if (cb.checked) {
+            setList(list.filter(item => item.importance))
+            setFiltered(true)
+        }
+        else {
+            refresh()
+            setFiltered(false)
+        }
     }
 
     return (
         <>
             <div className="list">
                 {list.map(note =>
-                    <Note key={note.id} noteId={note.id} title={note.title} description={note.description} creationDate={note.creationDate} lastModification={note.lastModification} important={note.importance} refresh={refresh} />
+                    <Note key={note.id} noteId={note.id} title={note.title} description={note.description} creationDate={note.creationDate} lastModification={note.lastModification} important={note.importance} filtered={filtered} refresh={refresh} />
                 )}
             </div>
             <div className="list--filter">
