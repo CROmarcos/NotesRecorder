@@ -1,0 +1,111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`note matches snapshot 1`] = `
+<div
+  className="card"
+>
+  <div
+    className="card__title"
+  >
+    <section
+      className="card__title-text"
+    >
+      <p>
+        Test note
+      </p>
+    </section>
+    <section
+      className="card__title-actions"
+    >
+      <a
+        href="/edit/undefined"
+        onClick={[Function]}
+      >
+        <button
+          className="action"
+        >
+          <img
+            alt="edit"
+            src="pen.png"
+          />
+        </button>
+      </a>
+      <button
+        className="action"
+        onClick={[Function]}
+      >
+        <img
+          alt="delete"
+          src="trashcan.png"
+        />
+      </button>
+      <button
+        className="action"
+        data-testid="mark-note"
+        onClick={[Function]}
+        style={
+          Object {
+            "display": "flex",
+          }
+        }
+      >
+        <img
+          alt="important note"
+          src="emptyheart.png"
+        />
+      </button>
+    </section>
+  </div>
+  <div
+    className="card__body"
+  >
+    <div
+      className="card__body-row"
+    >
+      <label>
+        Task: 
+      </label>
+      <span>
+        Note made for testing
+      </span>
+    </div>
+    <div
+      className="card__body-row"
+    >
+      <label>
+        Created: 
+      </label>
+      <span>
+        today
+      </span>
+    </div>
+    <div
+      className="card__body-row"
+    >
+      <label>
+        Last modified: 
+      </label>
+      <span>
+        N/A
+      </span>
+    </div>
+  </div>
+  <div
+    className="card__footer"
+  >
+    <a
+      href="/print/undefined"
+      onClick={[Function]}
+    >
+      <button
+        className="action"
+      >
+        <img
+          alt="Save to PDF"
+          src="printer.png"
+        />
+      </button>
+    </a>
+  </div>
+</div>
+`;
