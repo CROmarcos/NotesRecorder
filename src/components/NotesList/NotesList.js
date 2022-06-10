@@ -35,7 +35,7 @@ const NotesList = () => {
             </div>
             <div className="list--filter">
                 <label>Show only important notes</label>
-                <input id="check" type="checkbox" onClick={filterList} unchecked="true" />
+                <input id="check" data-testid="check" type="checkbox" onClick={filterList} unchecked="true" />
             </div>
             <Link to="/add"><button className="main-button">Add a note</button></Link>
         </>

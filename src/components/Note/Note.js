@@ -18,7 +18,7 @@ const Note = props => {
                 <section className='card__title-actions'>
                     <Link to={`/edit/${props.noteId}`}><button className='action'><img src={pen} alt="edit" /></button></Link>
                     <button className='action' onClick={() => { store.dispatch(deleteNote(props.noteId)); props.refresh() }}><img src={trashCan} alt="delete"></img></button>
-                    {props.filtered ? <></> : <button className='action' onClick={() => { store.dispatch(markNote({ id: props.noteId, importance: !props.important })); props.refresh() }}>{props.important ? <img src={heart} alt="important note" /> : <img src={emptyHeart} alt="important note" />}</button>}
+                    <button style={props.filtered ? { display: "none" } : { display: "flex" }} data-testid="mark-note" className='action' onClick={() => { store.dispatch(markNote({ id: props.noteId, importance: !props.important })); props.refresh() }}>{props.important ? <img src={heart} alt="important note" /> : <img src={emptyHeart} alt="important note" />}</button>
                 </section>
             </div>
             <div className='card__body'>

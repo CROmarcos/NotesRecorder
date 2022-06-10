@@ -63,7 +63,11 @@ const EditNote = () => {
                     <input className='input description' type="text" name="description" value={input.description} placeholder="Describe your task" onChange={handleChange} />
                 </div>
                 <div className='card__footer'>
-                    <Link to="/"><button className='input--action' onClick={id ? editTheNote : createNewNote}>Save</button></Link>
+                    {input.title !== '' ?
+                        <Link to="/"><button data-testid="save" className='input--action' onClick={id ? editTheNote : createNewNote}>Save</button></Link>
+                        :
+                        <button data-testid="save" className='input--action' onClick={() => alert("You have to enter the title!")}>Save</button>
+                    }
                     <Link to="/"><button className='input--action'>Cancel</button></Link>
                 </div>
             </div>
