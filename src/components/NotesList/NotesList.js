@@ -33,11 +33,13 @@ const NotesList = () => {
                     <Note key={note.id} noteId={note.id} title={note.title} description={note.description} creationDate={note.creationDate} lastModification={note.lastModification} important={note.importance} filtered={filtered} refresh={refresh} />
                 )}
             </div>
-            <div className="list--filter">
-                <label>Show only important notes</label>
-                <input id="check" data-testid="check" type="checkbox" onClick={filterList} unchecked="true" />
+            <div className="list--actions">
+                <div className="list--filter">
+                    <label>Show only important notes</label>
+                    <input id="check" data-testid="check" type="checkbox" onClick={filterList} unchecked="true" />
+                </div>
+                <Link to="/add"><button className="main-button">Add a note</button></Link>
             </div>
-            <Link to="/add"><button className="main-button">Add a note</button></Link>
         </>
     )
 }

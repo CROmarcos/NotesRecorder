@@ -2,6 +2,8 @@
     display: flex;
     flex-wrap: wrap;
     width: 100%;
+    height: calc(100% - 300px);
+    margin-bottom: 120px;
     justify-content: space-evenly;
 
     &--filter {
@@ -9,5 +11,16 @@
         font-weight: bold;
         color: rgb(2, 2, 59);
         margin-bottom: 20px;
+    }
+
+    &--actions {
+        height: 120px;
+        background-color: white;
+        bottom: 0%;
+        width: 100%;
+        padding-top: 25px;
+        position: fixed;
+        bottom: 0;
+        overflow: hidden;
     }
 }
