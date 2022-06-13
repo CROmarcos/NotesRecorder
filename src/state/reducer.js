@@ -7,7 +7,8 @@ const initialState = [
         description: "Skuhati Nescafe kremastu kavu s toplim mlijekom",
         creationDate: "17.12.2021., 23:11",
         lastModification: "still not modified",
-        importance: false
+        importance: false,
+        alarm: "N/A"
     },
     {
         id: 2,
@@ -15,7 +16,8 @@ const initialState = [
         description: "Kreirati tablice i ovisnost s triggerima",
         creationDate: "11.3.2022., 2:24",
         lastModification: "1.5.2022., 1:01",
-        importance: false
+        importance: false,
+        alarm: "N/A"
     },
     {
         id: 3,
@@ -23,7 +25,8 @@ const initialState = [
         description: "Poslati mail kupcu da je proizvod dovršen",
         creationDate: "17.5.2020., 13:07",
         lastModification: "still not modified",
-        importance: true
+        importance: true,
+        alarm: "N/A"
     },
     {
         id: 4,
@@ -31,7 +34,8 @@ const initialState = [
         description: "Automatizacija testiranja",
         creationDate: "7.4.2021., 12:21",
         lastModification: "still not modified",
-        importance: true
+        importance: true,
+        alarm: "N/A"
     }
 ]
 
@@ -48,6 +52,8 @@ const reducer = (state = initialState, action) => {
             return state.filter(note => note.id !== action.payload)
         case actions.MARK:
             return state.map(note => (note.id === action.payload.id) ? ({ ...note, importance: action.payload.importance }) : note)
+        case actions.SET_ALARM:
+            return state.map(note => (note.id === action.payload.id) ? ({ ...note, alarm: action.payload.alarm }) : note)
         default:
             return state
     }

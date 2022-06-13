@@ -27,3 +27,11 @@ export const markNote = ({ id, importance }) => ({
         importance
     }
 })
+
+export const setAlarm = ({ id, alarm }) => ({
+    type: actions.SET_ALARM,
+    payload: {
+        id,
+        alarm
+    }
+})

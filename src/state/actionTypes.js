@@ -4,3 +4,5 @@ export const DELETE="deleteNote"
 
 //same action for mark and unmark note
 export const MARK="markNote"
+
+export const SET_ALARM="setAlarm"
