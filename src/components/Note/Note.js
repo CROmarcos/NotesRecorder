@@ -4,11 +4,61 @@ import trashCan from '../../../src/images/trashcan.png'
 import pen from '../../../src/images/pen.png'
 import emptyHeart from '../../../src/images/emptyheart.png'
 import printer from '../../../src/images/printer.png'
+import alarm from '../../../src/images/alarm.png'
+import accept from '../../../src/images/accept.png'
+import cancel from '../../../src/images/cancel.png'
 import store from '../../state/store'
+import { useState } from "react"
 import { deleteNote, markNote } from '../../state/actions'
 import { Link } from 'react-router-dom'
+import { setAlarm } from '../../state/actions'
+import AlarmNotify, { getTimeString } from '../Alarm/alarm'
 
 const Note = props => {
+
+    const [notification, setNotification] = useState("N/A")
+
+    let hours = []
+    let minutes = []
+
+    for (let i = 0; i < 60; i++) {
+        if (i < 24) hours.push(i)
+        let min = i
+        if (i < 10) min = "0" + min
+        minutes.push(min)
+    }
+
+    const openAlarm = () => {
+        document.getElementById(`open-alarm/${props.noteId}`).style.display = "none"
+        document.getElementById(`set-alarm/${props.noteId}`).style.display = "block"
+        document.getElementById(`active-alarm/${props.noteId}`).style.display = "none"
+    }
+
+    const makeAlarm = () => {
+        document.getElementById(`open-alarm/${props.noteId}`).style.display = "none"
+        document.getElementById(`set-alarm/${props.noteId}`).style.display = "none"
+        document.getElementById(`active-alarm/${props.noteId}`).style.display = "flex"
+    }
+
+    const cancelAlarm = () => {
+        document.getElementById(`open-alarm/${props.noteId}`).style.display = "block"
+        document.getElementById(`set-alarm/${props.noteId}`).style.display = "none"
+        document.getElementById(`active-alarm/${props.noteId}`).style.display = "none"
+    }
+
+    const saveAlarm = (id) => {
+        let selectedHours = document.getElementById(`hours/${id}`)
+        let hr = selectedHours.options[selectedHours.selectedIndex].value
+        let selectedMinutes = document.getElementById(`minutes/${id}`)
+        let min = selectedMinutes.options[selectedMinutes.selectedIndex].value
+        store.dispatch(setAlarm({ id, alarm: getTimeString({ hours: hr, minutes: min }) }))
+        setNotification(getTimeString({ hours: hr, minutes: min }))
+    }
+
+    const deleteAlarm = (id) => {
+        store.dispatch(setAlarm({ id, alarm: "N/A" }))
+    }
+
     return (
         <div className='card'>
             <div className='card__title'>
@@ -27,7 +77,31 @@ const Note = props => {
                 <div className='card__body-row'><label>Last modified: </label><span>{props.lastModification}</span></div>
             </div>
             <div className='card__footer'>
-                <Link to={`/print/${props.noteId}`}><button className='action'><img src={printer} alt="Save to PDF" /></button></Link>
+                <section className='card__footer--side left'>
+                    <button id={`open-alarm/${props.noteId}`} className='action alarm--open' onClick={openAlarm}><img src={alarm} alt="Make notification" /></button>
+                    <div id={`set-alarm/${props.noteId}`} className='alarm--set'>
+                        <label>hrs&nbsp;</label>
+                        <select id={`hours/${props.noteId}`}>
+                            {hours.map(hr => <option key={hr}>{hr}</option>)}
+                        </select>
+                        <label>&nbsp;min&nbsp;</label>
+                        <select id={`minutes/${props.noteId}`}>
+                            {minutes.map(min => <option key={min}>{min}</option>)}
+                        </select>
+                        &emsp;
+                        <button className='action small' onClick={() => { saveAlarm(props.noteId); AlarmNotify(props.noteId); makeAlarm() }}><img src={accept} alt="Set alarm" /></button>
+                        &emsp;
+                        <button className='action small' onClick={cancelAlarm}><img src={cancel} alt="Cancel alarm" /></button>
+                    </div>
+                    <div id={`active-alarm/${props.noteId}`} className='alarm'>
+                        <p>Alarm set for {notification}</p>&emsp;
+                        <button className='action small' onClick={() => { deleteAlarm(props.noteId); cancelAlarm() }}><img src={cancel} alt="Cancel alarm" /></button>
+                    </div>
+                </section>
+                <section className='card__footer--side'>
+                    <Link to={`/print/${props.noteId}`}><button className='action'><img src={printer} alt="Save to PDF" /></button></Link>
+                    <button className="action" onClick={() => console.log(store.getState())}>A</button>
+                </section>
             </div>
         </div>
     )

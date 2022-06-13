@@ -39,7 +39,8 @@ const EditNote = () => {
             description: input.description,
             creationDate: date,
             lastModification: "still not modified",
-            importance: false
+            importance: false,
+            alarm: "N/A"
         }))
     }
 
@@ -57,7 +58,7 @@ const EditNote = () => {
         <div className='input-page'>
             <div className='card'>
                 <div className='card__title'>
-                    <input className='input' type="text" name="title" value={input.title} placeholder="Enter the title" onChange={handleChange} />
+                    <input className='input' type="text" name="title" value={input.title} placeholder="Enter the title*" onChange={handleChange} />
                 </div>
                 <div className='card__body'>
                     <input className='input description' type="text" name="description" value={input.description} placeholder="Describe your task" onChange={handleChange} />

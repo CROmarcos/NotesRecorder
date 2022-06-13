@@ -54,7 +54,20 @@
         height: 20%;
         display: flex;
         justify-content: space-evenly;
+
+        &--side {
+            width: 30%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
     }
+}
+
+.left {
+    justify-content: space-evenly;
+    width: 70%;
 }
 
 .action {
@@ -70,4 +83,18 @@
     img {
         height: 100%;
     }
+}
+
+.alarm {
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    &--set {
+        display: none;
+    }
+}
+
+.small {
+    height: 20px;
 }
