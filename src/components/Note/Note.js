@@ -51,8 +51,8 @@ const Note = props => {
         let hr = selectedHours.options[selectedHours.selectedIndex].value
         let selectedMinutes = document.getElementById(`minutes/${id}`)
         let min = selectedMinutes.options[selectedMinutes.selectedIndex].value
-        store.dispatch(setAlarm({ id, alarm: getTimeString({ hours: hr, minutes: min }) }))
-        setNotification(getTimeString({ hours: hr, minutes: min }))
+        store.dispatch(setAlarm({ id, alarm: getTimeString({ hours: hr, minutes: min, seconds: "00" }) }))
+        setNotification(getTimeString({ hours: hr, minutes: min, seconds: "00" }))
     }
 
     const deleteAlarm = (id) => {
