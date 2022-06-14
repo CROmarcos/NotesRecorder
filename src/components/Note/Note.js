@@ -8,14 +8,11 @@ import alarm from '../../../src/images/alarm.png'
 import accept from '../../../src/images/accept.png'
 import cancel from '../../../src/images/cancel.png'
 import store from '../../state/store'
-import { useState } from "react"
 import { deleteNote, markNote, setAlarm } from '../../state/actions'
 import { Link } from 'react-router-dom'
 import AlarmNotify, { getTimeString, openAlarm, makeAlarm, cancelAlarm } from '../Alarm/alarm'
 
 const Note = props => {
-
-    const [notification, setNotification] = useState("N/A")
 
     let hours = []
     let minutes = []
@@ -33,8 +30,6 @@ const Note = props => {
         let selectedMinutes = document.getElementById(`minutes/${id}`)
         let min = selectedMinutes.options[selectedMinutes.selectedIndex].value
         store.dispatch(setAlarm({ id, alarm: getTimeString({ hours: hr, minutes: min, seconds: "00" }) }))
-        let notif = getTimeString({ hours: hr, minutes: min, seconds: "00" })
-        setNotification(notif.slice(0, notif.length - 3))
     }
 
     const deleteAlarm = (id) => {
@@ -60,7 +55,7 @@ const Note = props => {
             </div>
             <div className='card__footer'>
                 <section className='card__footer--side left'>
-                    <div id={`open-alarm/${props.noteId}`} className='alarm--open'>
+                    <div id={`open-alarm/${props.noteId}`} style={props.alarm === "N/A" ? { display: "flex" } : { display: "none" }} className='alarm--open'>
                         <button className='action' onClick={() => openAlarm(props.noteId)}><img src={alarm} alt="Make notification" /></button>
                     </div>
                     <div id={`set-alarm/${props.noteId}`} className='alarm--set'>
@@ -77,8 +72,8 @@ const Note = props => {
                         &emsp;
                         <button className='action small' onClick={() => cancelAlarm(props.noteId)}><img src={cancel} alt="Cancel alarm" /></button>
                     </div>
-                    <div id={`active-alarm/${props.noteId}`} className='alarm'>
-                        <p>Alarm set for {notification}</p>&emsp;
+                    <div id={`active-alarm/${props.noteId}`} style={props.alarm === "N/A" ? { display: "none" } : { display: "flex" }} className='alarm'>
+                        <p>Alarm set for {store.getState().find(note => note.id === parseInt(props.noteId)).alarm.slice(0, -3)}</p>&emsp;
                         <button className='action small' onClick={() => { deleteAlarm(props.noteId); cancelAlarm(props.noteId) }}><img src={cancel} alt="Cancel alarm" /></button>
                     </div>
                 </section>

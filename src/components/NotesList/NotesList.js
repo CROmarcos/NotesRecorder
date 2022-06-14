@@ -30,7 +30,7 @@ const NotesList = () => {
         <>
             <div className="list">
                 {list.map(note =>
-                    <Note key={note.id} noteId={note.id} title={note.title} description={note.description} creationDate={note.creationDate} lastModification={note.lastModification} important={note.importance} filtered={filtered} refresh={refresh} />
+                    <Note key={note.id} noteId={note.id} title={note.title} description={note.description} creationDate={note.creationDate} lastModification={note.lastModification} important={note.importance} alarm={note.alarm} filtered={filtered} refresh={refresh} />
                 )}
             </div>
             <div className="list--actions">
