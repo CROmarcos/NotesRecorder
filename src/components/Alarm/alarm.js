@@ -38,8 +38,10 @@ const AlarmNotify = (id) => {
 
     const takeActivity = () => {
         store.getState().forEach(item => {
-            if (item.alarm === alarm) store.dispatch(setAlarm({ id: item.id, alarm: "N/A" }))
-            cancelAlarm(item.id)
+            if (item.alarm === alarm) {
+                store.dispatch(setAlarm({ id: item.id, alarm: "N/A" }))
+                cancelAlarm(item.id)
+            }
         });
     }
 
