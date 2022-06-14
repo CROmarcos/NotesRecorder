@@ -27,12 +27,20 @@ export const cancelAlarm = (id) => {
 const AlarmNotify = (id) => {
 
     let note = store.getState().find(note => note.id === parseInt(id))
+    let alarm = note.alarm
 
     let currentTime = "0:00:00"
 
+    let notifTitle = ""
+    store.getState().forEach(item => {
+        if (item.alarm === alarm) notifTitle += item.title + "\n"
+    });
+
     const takeActivity = () => {
-        store.dispatch(setAlarm({ id, alarm: "N/A" }))
-        cancelAlarm(id)
+        store.getState().forEach(item => {
+            if (item.alarm === alarm) store.dispatch(setAlarm({ id: item.id, alarm: "N/A" }))
+            cancelAlarm(item.id)
+        });
     }
 
     const getCurrentTime = () => {
@@ -46,7 +54,7 @@ const AlarmNotify = (id) => {
 
         if (currentTime === note.alarm) swal({
             title: "Don't forget about...",
-            text: note.title,
+            text: notifTitle,
             buttons: {
                 done: {
                     text: "OK, done",
