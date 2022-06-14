@@ -9,9 +9,8 @@ import accept from '../../../src/images/accept.png'
 import cancel from '../../../src/images/cancel.png'
 import store from '../../state/store'
 import { useState } from "react"
-import { deleteNote, markNote } from '../../state/actions'
+import { deleteNote, markNote, setAlarm } from '../../state/actions'
 import { Link } from 'react-router-dom'
-import { setAlarm } from '../../state/actions'
 import AlarmNotify, { getTimeString, openAlarm, makeAlarm, cancelAlarm } from '../Alarm/alarm'
 
 const Note = props => {
@@ -34,7 +33,8 @@ const Note = props => {
         let selectedMinutes = document.getElementById(`minutes/${id}`)
         let min = selectedMinutes.options[selectedMinutes.selectedIndex].value
         store.dispatch(setAlarm({ id, alarm: getTimeString({ hours: hr, minutes: min, seconds: "00" }) }))
-        setNotification(getTimeString({ hours: hr, minutes: min, seconds: "00" }))
+        let notif = getTimeString({ hours: hr, minutes: min, seconds: "00" })
+        setNotification(notif.slice(0, notif.length - 3))
     }
 
     const deleteAlarm = (id) => {

@@ -47,8 +47,17 @@ const AlarmNotify = (id) => {
         if (currentTime === note.alarm) swal({
             title: "Don't forget about...",
             text: note.title,
-            button: "OK, done"
-        }).then(takeActivity)
+            buttons: {
+                done: {
+                    text: "OK, done",
+                    value: true
+                },
+                later: {
+                    text: "Later",
+                    value: false
+                }
+            }
+        }).then((value) => value ? takeActivity() : swal.close())
     }
 
     const notif = () => setInterval(getCurrentTime, 1000);
