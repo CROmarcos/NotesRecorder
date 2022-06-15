@@ -75,11 +75,11 @@ const Note = props => {
                         &emsp;
                         <button className='action small' onClick={() => { saveAlarm(props.noteId); AlarmNotify(props.noteId); makeAlarm(props.noteId) }}><img src={accept} alt="Set alarm" /></button>
                         &emsp;
-                        <button className='action small' onClick={() => cancelAlarm(props.noteId)}><img src={cancel} alt="Cancel alarm" /></button>
+                        <button className='action small' onClick={() => { cancelAlarm(props.noteId); setNotification("N/A") }}><img src={cancel} alt="Cancel alarm" /></button>
                     </div>
                     <div id={`active-alarm/${props.noteId}`} style={props.alarm === "N/A" ? { display: "none" } : { display: "flex" }} className='alarm'>
-                        <p>Alarm set for {props.alarm === "N/A" ? notification : props.alarm.slice(0, -3)}</p>&emsp;
-                        <button className='action small' onClick={() => { deleteAlarm(props.noteId); cancelAlarm(props.noteId) }}><img src={cancel} alt="Cancel alarm" /></button>
+                        <p>Alarm set for {notification !== "N/A" ? notification : props.alarm.slice(0, -3)}</p>&emsp;
+                        <button className='action small' onClick={() => { deleteAlarm(props.noteId); cancelAlarm(props.noteId); setNotification("N/A") }}><img src={cancel} alt="Cancel alarm" /></button>
                     </div>
                 </section>
                 <section className='card__footer--side'>
