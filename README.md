@@ -19,6 +19,9 @@ Trash can icon near the fountain pen deletes selected note and removes it from p
 ### Mark note as important
 A note is not important by default. It can be marked as important by pressing the heart icon top right. Red heart signifies important notes, while white heart signifies these which are not. It is possible to select only important notes to be shown by marking checkbox near the text **Show only important notes**.
 
+### Set alarm
+Clock icon opens form for setting alarm at scheduled time. At the time there is shown an alert containing titles of all notes with alarm at that time. Selecting option **OK, done**, alarms are closed, while selecting option **Later** alarms stay active. It is always possible to cancel alarm before scheduled time.
+
 ### Export note as image
 Printer icon at the bottom of note card opens a new page which shows selected note ready for printing. Pressing button **Download note**, the note is saved to local storage as a .png image.
 
@@ -32,6 +35,8 @@ Printer icon at the bottom of note card opens a new page which shows selected no
 &emsp;&emsp;&emsp;&emsp;&emsp;&ensp;
 ![Unimportant note](src/images/emptyheart.png?raw=true)
 &emsp;&emsp;&emsp;&emsp;&ensp;
+![Unimportant note](src/images/alarm.png?raw=true)
+&emsp;&ensp;
 ![Print note](src/images/printer.png?raw=true)
 <br>
-edit note&emsp;delete note&emsp;note is important&emsp;note is not important&emsp;export note
+edit note&emsp;delete note&emsp;note is important&emsp;note is not important&emsp;set alarm&emsp;export note
