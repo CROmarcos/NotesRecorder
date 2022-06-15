@@ -11,8 +11,12 @@ import store from '../../state/store'
 import { deleteNote, markNote, setAlarm } from '../../state/actions'
 import { Link } from 'react-router-dom'
 import AlarmNotify, { getTimeString, openAlarm, makeAlarm, cancelAlarm } from '../Alarm/alarm'
+import { useState } from 'react'
 
 const Note = props => {
+
+    // variable for displaying current alarm due to asynchronous store update
+    const [notification, setNotification] = useState("N/A")
 
     let hours = []
     let minutes = []
@@ -30,6 +34,7 @@ const Note = props => {
         let selectedMinutes = document.getElementById(`minutes/${id}`)
         let min = selectedMinutes.options[selectedMinutes.selectedIndex].value
         store.dispatch(setAlarm({ id, alarm: getTimeString({ hours: hr, minutes: min, seconds: "00" }) }))
+        setNotification(getTimeString({ hours: hr, minutes: min, seconds: "00" }).slice(0, -3))
     }
 
     const deleteAlarm = (id) => {
@@ -73,7 +78,7 @@ const Note = props => {
                         <button className='action small' onClick={() => cancelAlarm(props.noteId)}><img src={cancel} alt="Cancel alarm" /></button>
                     </div>
                     <div id={`active-alarm/${props.noteId}`} style={props.alarm === "N/A" ? { display: "none" } : { display: "flex" }} className='alarm'>
-                        <p>Alarm set for {store.getState().find(note => note.id === parseInt(props.noteId)).alarm.slice(0, -3)}</p>&emsp;
+                        <p>Alarm set for {props.alarm === "N/A" ? notification : props.alarm.slice(0, -3)}</p>&emsp;
                         <button className='action small' onClick={() => { deleteAlarm(props.noteId); cancelAlarm(props.noteId) }}><img src={cancel} alt="Cancel alarm" /></button>
                     </div>
                 </section>
