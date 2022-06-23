@@ -26,6 +26,12 @@ const NotesList = () => {
         }
     }
 
+    function searchList() {
+        let searchBox = document.getElementById("search").value
+        if (searchBox === "") refresh()
+        else setList(list.filter(item => item.title.toLowerCase().includes(searchBox.toLowerCase())))
+    }
+
     return (
         <>
             <div className="list">
@@ -34,8 +40,11 @@ const NotesList = () => {
                 )}
             </div>
             <div className="list--actions">
+                <div className="list--search">
+                    <input id="search" className="list--search-bar" type="text" placeholder="Search by title" onChange={searchList} />
+                </div>
                 <div className="list--filter">
-                    <label>Show only important notes</label>
+                    <label>Show only important notes&nbsp;&nbsp;</label>
                     <input id="check" data-testid="check" type="checkbox" onClick={filterList} unchecked="true" />
                 </div>
                 <Link to="/add"><button className="main-button">Add a note</button></Link>
