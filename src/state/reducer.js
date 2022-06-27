@@ -30,7 +30,7 @@ const initialState = [
     },
     {
         id: 4,
-        title: "Napraviti testiranje",
+        title: "Napraviti testiranje za dugački naslov",
         description: "Automatizacija testiranja",
         creationDate: "7.4.2021., 12:21",
         lastModification: "still not modified",

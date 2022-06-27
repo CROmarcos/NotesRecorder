@@ -60,10 +60,10 @@ const EditNote = () => {
         <div className='input-page'>
             <div className='card'>
                 <div className='card__title'>
-                    <input className='input' type="text" name="title" value={input.title} placeholder="Enter the title*" onChange={handleChange} />
+                    <input className='input' type="text" name="title" value={input.title} placeholder="Enter the title*" maxlength="40" onChange={handleChange} />
                 </div>
                 <div className='card__body'>
-                    <input className='input description' type="text" name="description" value={input.description} placeholder="Describe your task" onChange={handleChange} />
+                    <input className='input description' type="text" name="description" value={input.description} placeholder="Describe your task" maxLength="80" onChange={handleChange} />
                 </div>
                 <div className='card__footer'>
                     {input.title !== '' ?

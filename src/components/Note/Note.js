@@ -45,7 +45,7 @@ const Note = props => {
         <div className='card'>
             <div className='card__title'>
                 <section className='card__title-text'>
-                    <p>{props.title}</p>
+                    <p className='displayed-text'>{props.title}</p>
                 </section>
                 <section className='card__title-actions'>
                     <Link to={`/edit/${props.noteId}`}><button className='action'><img src={pen} alt="edit" /></button></Link>
@@ -54,7 +54,7 @@ const Note = props => {
                 </section>
             </div>
             <div className='card__body'>
-                <div className='card__body-row'><label>Task: </label><span>{props.description}</span></div>
+                <div className='card__body-row'><label>Task: </label><span className='task-description'>{props.description}</span></div>
                 <div className='card__body-row'><label>Created: </label><span>{props.creationDate}</span></div>
                 <div className='card__body-row'><label>Last modified: </label><span>{props.lastModification}</span></div>
             </div>

@@ -105,3 +105,19 @@
 .small {
     height: 20px;
 }
+
+.displayed-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
+
+    &:hover{
+        overflow: visible; 
+        white-space: normal;
+    }
+}
+
+.task-description {
+    word-break: break-word;
+}
